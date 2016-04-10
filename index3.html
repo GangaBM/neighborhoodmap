@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="initial-scale=1.0">
+    	<meta charset="utf-8">
+		<link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+		<script src="css/bootstrap/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+
+			<div class="row header">
+				<button type="button" class="btn btn-primary btn-lg" data-toggle="collapse" data-target="#sidebar" aria-expanded="true">
+					<span class="glyphicon glyphicon-menu-hamburger"></span>
+				</button>
+				<h1 class="text-center">NEIGHBORHOOD MAP PROJECT</h1>
+			</div>
+
+
+
+     		<div class="row" id="sidebar-wrapper">
+     			<div class="collapse in col-md-3" id="sidebar">
+
+     					<br/>
+					    <input type="text" class="form-control" placeholder="Search">
+
+					    <button type="submit" class="btn btn-default">Submit</button>
+					    <br/><br/>
+			        	<ul class="list-group">
+				            <li class="list-group-item" data-bind="text: displayMap"><a href="#">Link</a></li>
+			        	</ul>
+	       		</div>
+
+
+			    <div id="map" class="col-md-12" >
+
+			    </div>
+
+
+		    </div>
+
+		</div>
+
+		 <script>
+			$(document).ready(function(e){
+				$(".btn-primary").on("click", function(){
+					//$('#map').toggleClass("col-md-12 col-md-9");
+     				$('#sidebar').toggleClass("  col-md-3");
+  				});
+
+			});
+		</script>
+
+
+		<script src="https://maps.googleapis.com/maps/api/js"></script>
+
+		<script src="knockout-3.2.0.js"></script>
+
+  	 	<script src="map.js"></script>
+
+
+
+
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-
+
+
+
+
+
