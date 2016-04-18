@@ -39,57 +39,44 @@ var model = {
 		}]
 };
 
-
-
 function initMap(){
-	map = new google.maps.Map(document.getElementById('map'), {
-	center: model.restaurants[0].loc,
-	zoom: 11
-	});
+	  map = new google.maps.Map(document.getElementById('map'), {
+	    center: model.restaurants[0].loc,
+	    zoom: 11
+	  });
 
+}
 
-};
-
-function defaultMarkers(){
+ function defaultMarkers(){
 		var i = 0;
-			//console.log(Object.keys(model));
-		Object.keys(model).forEach(function(key) {
-		var length = model[key].length;
-		for(i=0; i<length; i++){
-			//console.log(model[key][i].loc);
-			var marker = new google.maps.Marker({
-		    position: model[key][i].loc,
-		    map: map,
-		    title: 'Hello World!'
-			});
-			marker.setMap(map);
-		}
-	});
-};
-
-function displayLocations(){
- 	var i = 0;
- 	var locations = [];
 		Object.keys(model).forEach(function(key) {
 			var length = model[key].length;
 			for(i=0; i<length; i++){
-				locations.push(model[key][i].name);
+				var marker = new google.maps.Marker({
+			    position: model[key][i].loc,
+			    map: map,
+			    title: 'Hello World!'
+				});
+				marker.setMap(map);
 			}
-	});
-	return locations;
-};
+		});
+	};
+
+	var viewModel = {
+		var self = this,
+
+	 	self.displayMap = initMap();
+	 	self.displayMarkers = defaultMarkers();
+
+		// self.displayLocations: function(){
+		// 	console.log(Object.keys(model));
+
+
+		}
+	}
 
 
 
-
-function viewModel(){
-	var self = this;
-	self.displayMap = initMap();
-	self.displayMarkers = defaultMarkers();
-	self.locations = ko.observableArray(displayLocations());
-
-
-};
-ko.applyBindings(new viewModel());
+ko.applyBindings(viewModel);
 
 

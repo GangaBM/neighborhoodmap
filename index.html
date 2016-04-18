@@ -25,15 +25,18 @@
 
 
      		<div class="row" id="sidebar-wrapper">
-     			<div class="collapse col-md-3 col-sm-12 col-xs-12" id="sidebar">
+     			<div class="collapse in col-md-3 col-sm-12 col-xs-12" id="sidebar">
 
      					<br/>
 					    <input type="text" class="form-control" placeholder="Search">
 
 					    <button type="submit" class="btn btn-default">Submit</button>
 					    <br/><br/>
-			        	<ul class="list-group">
-				            <li class="list-group-item" data-bind="text: displayMap"><a href="#">Link</a></li>
+			        	<ul data-bind="foreach: locations" class="list-group" >
+				            <li class="list-group-item">
+				            	<span data-bind="text: $data"> </span>
+
+				            </li>
 			        	</ul>
 	       		</div>
 
@@ -47,7 +50,7 @@
 
 		</div>
 
-		<script src="https://maps.googleapis.com/maps/api/js"></script>
+		<script async src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
 		<script src="js/knockout-3.2.0.js"></script>
   	 	<script src="js/map.js"></script>
 
