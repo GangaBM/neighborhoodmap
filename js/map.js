@@ -47,10 +47,11 @@ function initMap(){
 	zoom: 11
 	});
 
+	ko.applyBindings(new viewModel());
 
 };
 
-function defaultMarkers(){
+function defaultMarkers(locations){
 		var i = 0;
 			//console.log(Object.keys(model));
 		Object.keys(model).forEach(function(key) {
@@ -67,13 +68,16 @@ function defaultMarkers(){
 	});
 };
 
-function displayLocations(){
+function LocationList(){
  	var i = 0;
  	var locations = [];
 		Object.keys(model).forEach(function(key) {
 			var length = model[key].length;
 			for(i=0; i<length; i++){
-				locations.push(model[key][i].name);
+				eachLocation = model[key][i].name;
+				locations.push(eachLocation);
+				eachLocation
+
 			}
 	});
 	return locations;
@@ -84,12 +88,10 @@ function displayLocations(){
 
 function viewModel(){
 	var self = this;
-	self.displayMap = initMap();
 	self.displayMarkers = defaultMarkers();
-	self.locations = ko.observableArray(displayLocations());
+	self.locations = ko.observableArray(LocationList());
 
 
 };
-ko.applyBindings(new viewModel());
 
 
