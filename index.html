@@ -34,7 +34,7 @@
 					    <br/><br/>
 			        	<ul data-bind="foreach: locations" class="list-group" >
 				            <li class="list-group-item">
-				            	<span data-bind="text: $data"> </span>
+				            	<span data-bind="text: $data, click: $root.markerAnimation"> </span>
 
 				            </li>
 			        	</ul>
@@ -50,7 +50,7 @@
 
 		</div>
 
-		<script defer async src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
+		<script defer async src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initMap"></script>
 		<script src="js/knockout-3.2.0.js"></script>
   	 	<script src="js/map.js"></script>
 
