@@ -5,8 +5,7 @@
     	<meta charset="utf-8">
 		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/style.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-		<script src="bootstrap/js/bootstrap.min.js"></script>
+
 	</head>
 	<body>
 		<div class="container">
@@ -25,7 +24,7 @@
 
 
      		<div class="row" id="sidebar-wrapper">
-     			<div class="collapse in col-md-3 col-sm-12 col-xs-12" id="sidebar">
+     			<div class="collapse in col-md-3 col-sm-4 col-xs-4" id="sidebar">
 
      					<br/>
 					    <input type="text" class="form-control" placeholder="Search">
@@ -34,7 +33,7 @@
 					    <br/><br/>
 			        	<ul data-bind="foreach: locations" class="list-group" >
 				            <li class="list-group-item">
-				            	<span data-bind="text: $data, click: $root.markerAnimation"> </span>
+				            	<span data-bind="text: $data, click: listClick"> </span>
 
 				            </li>
 			        	</ul>
@@ -49,8 +48,9 @@
 		    </div>
 
 		</div>
-
-		<script defer async src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initMap"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<script defer async src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
 		<script src="js/knockout-3.2.0.js"></script>
   	 	<script src="js/map.js"></script>
 
