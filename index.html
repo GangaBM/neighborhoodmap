@@ -31,9 +31,9 @@
 
 					    <button type="submit" class="btn btn-default">Submit</button>
 					    <br/><br/>
-			        	<ul data-bind="foreach: locations" class="list-group" >
+			        	<ul data-bind="foreach: places" class="list-group" >
 				            <li class="list-group-item">
-				            	<span data-bind="text: $data, click: listClick"> </span>
+				            	<span data-bind="text: $data.name, click: listClick"> </span>
 
 				            </li>
 			        	</ul>
@@ -82,7 +82,7 @@
 
 
 
--
+
 
 
 

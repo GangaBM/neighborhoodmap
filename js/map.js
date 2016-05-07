@@ -68,21 +68,25 @@ function defaultMarkers(locations){
 		var i;
 
 		for(i=0; i<locations.length;i++){
-			markers.push(marker = new google.maps.Marker({
+			marker = new google.maps.Marker({
 			position: places[i].loc,
 			animation: google.maps.Animation.DROP,
 			map: map,
 			title: locations[i]
-			}));
+			});
+
+			places[i].marker = marker;
+
 			marker.addListener('click', (function(marker){
 				return function(){
 					toggleBounce(marker);
+					getFourSquare(marker.title);
 				}
 			}(marker)));
+
 			marker.setMap(map);
 		}
-		return markers;
-};
+	};
 
 function toggleBounce(marker){
 	if (marker.getAnimation() != undefined) {
@@ -94,16 +98,9 @@ function toggleBounce(marker){
 }
 
 
-function listClick(marker){
-	var clickedObj = this.valueOf();
-
-	 for(j=0; j<markers.length; j++){
-		if(markers[j].title === clickedObj){
-			toggleBounce(markers[j]);
-			getFourSquare(markers[j].title);
-		}
-
-	}
+function listClick(){
+	//marker = this.marker;
+	google.maps.event.trigger(this.marker, 'click');
 };
 
 function getFourSquare(place){
@@ -123,9 +120,10 @@ function getFourSquare(place){
 function viewModel(){
 	var self = this;
 	self.locations = ko.observableArray(locations());
+	self.places = ko.observableArray(places);
 	self.displayMarkers = defaultMarkers(self.locations());
-	self.markerAnimation = listClick(self.displayMarkers);
-	self.getInfoData = getFourSquare();
+	self.listToMarkerAnimation = listClick(self.displayMarkers);
+	// self.getInfoData = getFourSquare();
 	// self.markerClick = function(marker) {
 	// 	google.maps.event.trigger(marker, 'click', marker);
 	// };
