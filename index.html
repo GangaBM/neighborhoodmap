@@ -21,7 +21,7 @@
          <div class="row" id="sidebar-wrapper">
             <div class="collapse in col-md-3 col-sm-4 col-xs-4" id="sidebar">
                <br/>
-               <input id="search" placeholder="Search…" type="search" data-bind="textInput: query, valueUpdate: 'keyup'" autocomplete="off">
+               <input id="search" placeholder="Search…" type="search" data-bind="textInput: query" autocomplete="off">
                <br/><br/>
                <ul data-bind="foreach: places" class="list-group" >
                   <li class="list-group-item" data-bind="text: $data.name, click: listClick">
@@ -34,8 +34,10 @@
       </div>
       <script src="js/jquery-2.2.3.min%20.js"></script>
       <script src="bootstrap/js/bootstrap.min.js"></script>
-      <script defer async src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
       <script src="js/knockout-3.2.0.js"></script>
       <script src="js/map.js"></script>
+      <script>function googleError() { alert("Sorry!! Google Maps cannot be loaded");}</script>
+      <script defer async src="https://maps.googleapis.com/maps/api/js?callback=initMap" onerror="googleError()"></script>
+
    </body>
 </html>

@@ -45,6 +45,7 @@ var places = [{
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: places[0].loc,
+        disableDefaultUI: true,
         zoom: 11
     });
 
@@ -72,22 +73,15 @@ function defaultMarkers(places) {
         infowindow = new google.maps.InfoWindow();
         marker.addListener('click', (function(marker) {
             return function() {
-
-                toggleBounce(marker);
+                marker.setAnimation(google.maps.Animation.BOUNCE);
+    			setTimeout(function(){
+    				marker.setAnimation(null)
+    			}, 1400);
                 attachContent(marker);
             }
         }(marker)));
 
         marker.setMap(map);
-    }
-}
-
-//marker animation is set in this function. This gets called by event listener function in the above function
-function toggleBounce(marker) {
-    if (marker.getAnimation() != undefined) {
-        marker.setAnimation(null);
-    } else {
-        marker.setAnimation(google.maps.Animation.BOUNCE);
     }
 }
 
@@ -108,25 +102,22 @@ function attachContent(marker) {
     $.getJSON(fourSquareURL, function(data) {
         var venue = data.response.venues[0];
         var address = venue.location.formattedAddress;
-        var url = venue.url;
+        var url = venue.url ? '<a href="' + venue.url + '">Website</a><br/>' : '<span><b>Website not found</b></span><br/>';
+        var streetNum = address[0] || "Street Number is not available";
+        var city_state_zip = address[1] || "City, state and zip info. is not available";
+        var country = address[2] || "Phone No. is not available";
+        var phoneNo = venue.contact.formattedPhone || "Phone No. Not Available";
 
-
-        var contentString = '<div id="iwbody">' +
-            '<a href="' + url + '">website</a><br/>' + address[0] + '<br/>' + address[1] + '<br/>' + address[2] + '<br/><h3 id="phoneno">' + venue.contact.formattedPhone + '</h3><br/></div>';
-
+        var contentString = '<div id="iwbody"><b>' + url +'</b>'+ streetNum + '<br/>' + city_state_zip + '<br/>' + country + '<br/><h4 id="phoneno">' + phoneNo + '</h4><br/></div>';
 
         infowindow.setContent(contentString);
         infowindow.open(map, marker);
-
 
     }).error(function(e) {
         infowindow.setContent('<div style="color:black">Sorry!! Cannot load the address</div>');
         infowindow.open(map, marker);
     })
 }
-
-
-
 
 
 //Following viewModel calls the functions in a sequence. It also has four new functions: i)self.places - to filter the places array based on the search; ii) self.sub - to call functions each time queries are added in the search bar; iia) every time a query is there all the markers are cleared through clearMarkers function and iib) markers corresponding to the filtered list items are then added according to the self.places() array

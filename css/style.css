@@ -15,26 +15,26 @@ body {
 }
 .header {
     height: 70px;
-    background: -moz-linear-gradient(left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5));
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(rgba(0, 0, 0, 1)), color-stop(rgba(0, 0, 0, 0.5)));
+    background: -moz-linear-gradient(right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5));
+    background: -webkit-gradient(linear,right top, left bottom, color-stop(rgba(0, 0, 0, 1)), color-stop(rgba(0, 0, 0, 0.5)));
     /* Chrome,Safari4+ */
 
-    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5));
+    background: -webkit-linear-gradient(right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5));
     /* Chrome10+,Safari5.1+ */
 
-    background: -o-linear-gradient(left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5));
+    background: -o-linear-gradient(right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5));
     /* Opera 11.10+ */
 
-    background: -ms-linear-gradient(left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5));
+    background: -ms-linear-gradient(right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5));
     /* IE10+ */
 
-    background: linear-gradient(left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5));
+    background: linear-gradient(right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5));
     /* W3C */
 
     padding: 10px;
 }
 h1 {
-    top: -5px;
+    margin-top: 5px;
 }
 #sidebar-wrapper {
     height: 100%;
@@ -51,12 +51,14 @@ h1 {
     width: 170px;
     color: black;
 }
+.list-group-item {
+    cursor: pointer;
+}
+
 #map {
     height: 100%;
 }
-#iwaddress {
-    color: #100;
-}
+
 #iwbody {
     color: #100;
 }
