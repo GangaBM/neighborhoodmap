@@ -7,13 +7,13 @@ var places = [{
     loc: {
         lat: 41.143405,
         lng: -73.285961
-    },
+    }
 }, {
     name: "Chips Restaurant",
     loc: {
         lat: 41.178543,
         lng: -73.240930
-    },
+    }
 }, {
     name: "Holiday Inn",
     loc: {
@@ -25,19 +25,19 @@ var places = [{
     loc: {
         lat: 41.147831,
         lng: -73.129329
-    },
+    }
 }, {
     name: "Little Barn",
     loc: {
         lat: 41.152615,
         lng: -73.127059
-    },
+    }
 }, {
     name: "Old Post Tavern",
     loc: {
         lat: 41.148220,
         lng: -73.255118
-    },
+    }
 }];
 
 
@@ -48,7 +48,7 @@ function initMap() {
         disableDefaultUI: true,
         zoom: 11
     });
-
+    infowindow = new google.maps.InfoWindow();
     ko.applyBindings(new viewModel());
 
 
@@ -58,6 +58,7 @@ function initMap() {
 //This function displays markers when the map is loaded. It takes 'name' and 'location'(lat, lng) values from the places array. It then adds an event listener for each marker and sets a call back function to call marker animation and infowindow functions
 function defaultMarkers(places) {
     var i;
+
     for (i = 0; i < places.length; i++) {
         marker = new google.maps.Marker({
             position: places[i].loc,
@@ -70,13 +71,13 @@ function defaultMarkers(places) {
         places[i].marker = marker;
         markers.push(marker);
 
-        infowindow = new google.maps.InfoWindow();
+
         marker.addListener('click', (function(marker) {
             return function() {
                 marker.setAnimation(google.maps.Animation.BOUNCE);
-    			setTimeout(function(){
-    				marker.setAnimation(null)
-    			}, 1400);
+                setTimeout(function() {
+                    marker.setAnimation(null)
+                }, 1400);
                 attachContent(marker);
             }
         }(marker)));
@@ -108,7 +109,7 @@ function attachContent(marker) {
         var country = address[2] || "Phone No. is not available";
         var phoneNo = venue.contact.formattedPhone || "Phone No. Not Available";
 
-        var contentString = '<div id="iwbody"><b>' + url +'</b>'+ streetNum + '<br/>' + city_state_zip + '<br/>' + country + '<br/><h4 id="phoneno">' + phoneNo + '</h4><br/></div>';
+        var contentString = '<div id="iwbody"><b>' + url + '</b>' + streetNum + '<br/>' + city_state_zip + '<br/>' + country + '<br/><h4 id="phoneno">' + phoneNo + '</h4><br/></div>';
 
         infowindow.setContent(contentString);
         infowindow.open(map, marker);
@@ -124,11 +125,11 @@ function attachContent(marker) {
 
 function viewModel() {
     var self = this;
-    self.markers = ko.observableArray(markers)
+    self.markers = ko.observableArray(markers);
 
-    self.places = ko.observableArray(places)
+    self.places = ko.observableArray(places);
 
-    self.query = ko.observable('')
+    self.query = ko.observable('');
 
     self.places = ko.computed(function() {
         var search = self.query().toLowerCase();
@@ -136,7 +137,7 @@ function viewModel() {
         return ko.utils.arrayFilter(places, function(place) {
             return place.name.toLowerCase().indexOf(search) >= 0;
         });
-    }, self)
+    }, self);
 
 
 
@@ -148,16 +149,16 @@ function viewModel() {
         for (var i = 0; i < markers.length; i++) {
             markers[i].setMap(null);
         }
-    }
+    };
     self.showMarkers = function(map, markers) {
         for (var i = 0; i < markers.length; i++) {
             markers[i].marker.setMap(map);
         }
-    }
+    };
 
     self.sub = self.query.subscribe(function() {
         self.clearMarkers(map, markers);
         self.showMarkers(map, self.places());
-    })
+    });
 
-}
+};

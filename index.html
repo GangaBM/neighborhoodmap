@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <meta name="viewport" content="initial-scale=1.0">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta charset="utf-8">
       <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
       <link rel="stylesheet" href="css/style.css">
@@ -14,7 +14,7 @@
                <span class="glyphicon glyphicon-menu-hamburger"></span>
                </button>
             </div>
-            <div class="col-md-9 col-xs-12">
+            <div class="col-md-9 hidden-xs">
                <h1>NEIGHBORHOOD MAP PROJECT</h1>
             </div>
          </div>
@@ -37,7 +37,6 @@
       <script src="js/knockout-3.2.0.js"></script>
       <script src="js/map.js"></script>
       <script>function googleError() { alert("Sorry!! Google Maps cannot be loaded");}</script>
-      <script defer async src="https://maps.googleapis.com/maps/api/js?callback=initMap" onerror="googleError()"></script>
-
+      <script async src="https://maps.googleapis.com/maps/api/js?callback=initMap" onerror="googleError()"></script>
    </body>
 </html>
