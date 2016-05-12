@@ -1,87 +1,72 @@
-html, body {
+html,
+body {
     font-family: 'Lato', sans-serif;
     color: white;
     font-weight: 400;
     margin: 0px;
     min-height: 100%;
     height: 100%;
-
-
 }
 .container {
     margin-top: 2px;
     box-shadow: 0 0 25px 1px rgba(31, 73, 125, 0.3);
     border: 1px solid rgba(31, 73, 125, 0.3);
     height: 100%;
-      }
+}
 .header {
     height: 70px;
-    background: -moz-linear-gradient(left, rgba(0,0,0,1), rgba(0,0,0, 0.5));
-
-
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(rgba(0,0,0, 1)), color-stop(rgba(0,0,0, 0.5)));
+    background: -moz-linear-gradient(left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5));
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(rgba(0, 0, 0, 1)), color-stop(rgba(0, 0, 0, 0.5)));
     /* Chrome,Safari4+ */
 
-    background: -webkit-linear-gradient(left, rgba(0,0,0,1), rgba(0,0,0, 0.5));
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5));
     /* Chrome10+,Safari5.1+ */
 
-   background: -o-linear-gradient(left, rgba(0,0,0,1), rgba(0,0,0, 0.5));
+    background: -o-linear-gradient(left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5));
     /* Opera 11.10+ */
 
-   background: -ms-linear-gradient(left, rgba(0,0,0,1), rgba(0,0,0, 0.5));
+    background: -ms-linear-gradient(left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5));
     /* IE10+ */
 
-   background: linear-gradient(left, rgba(0,0,0,1), rgba(0,0,0,0.5));
+    background: linear-gradient(left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5));
     /* W3C */
+
     padding: 10px;
 }
-
-h1{
-    padding-top: -5px;
+h1 {
+    top: -5px;
 }
 #sidebar-wrapper {
-     height: 100%;
-
+    height: 100%;
 }
-
 #sidebar {
     border: 1px solid rgba(31, 73, 125, 0.3);
     height: 100%;
     z-index: 1;
     position: absolute;
     overflow-y: hidden;
-
 }
-
 #search {
     margin: 5px 0px;
     width: 170px;
     color: black;
-
 }
-
-#map{
-
-	height: 100%;
-
+#map {
+    height: 100%;
 }
-
 #iwaddress {
     color: #100;
 }
-
-#iwbody{
-    color:#100;
+#iwbody {
+    color: #100;
 }
-#phoneno{
+#phoneno {
     color: blue;
 }
-
-li{
+li {
     color: black;
 }
-
-a{
+a {
     color: red;
     font-size: 16px;
     font-weight: bold;

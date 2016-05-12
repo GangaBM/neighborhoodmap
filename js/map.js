@@ -51,7 +51,7 @@ function initMap() {
     ko.applyBindings(new viewModel());
 
 
-};
+}
 
 
 //This function displays markers when the map is loaded. It takes 'name' and 'location'(lat, lng) values from the places array. It then adds an event listener for each marker and sets a call back function to call marker animation and infowindow functions
@@ -80,7 +80,7 @@ function defaultMarkers(places) {
 
         marker.setMap(map);
     }
-};
+}
 
 //marker animation is set in this function. This gets called by event listener function in the above function
 function toggleBounce(marker) {
@@ -94,7 +94,7 @@ function toggleBounce(marker) {
 // this function implements list to marker animation. Whenever a list item is clicked marker add listener is triggered.
 function listClick() {
     google.maps.event.trigger(this.marker, 'click');
-};
+}
 
 
 // This function makes a request to Foursquare and gets the data. It then puts the required data in a content string and returns to the marker.addListener callback function
@@ -122,8 +122,8 @@ function attachContent(marker) {
     }).error(function(e) {
         infowindow.setContent('<div style="color:black">Sorry!! Cannot load the address</div>');
         infowindow.open(map, marker);
-    });
-};
+    })
+}
 
 
 
@@ -133,11 +133,11 @@ function attachContent(marker) {
 
 function viewModel() {
     var self = this;
-    self.markers = ko.observableArray(markers);
+    self.markers = ko.observableArray(markers)
 
-    self.places = ko.observableArray(places);
+    self.places = ko.observableArray(places)
 
-    self.query = ko.observable('');
+    self.query = ko.observable('')
 
     self.places = ko.computed(function() {
         var search = self.query().toLowerCase();
@@ -145,7 +145,7 @@ function viewModel() {
         return ko.utils.arrayFilter(places, function(place) {
             return place.name.toLowerCase().indexOf(search) >= 0;
         });
-    }, self);
+    }, self)
 
 
 
@@ -157,7 +157,7 @@ function viewModel() {
         for (var i = 0; i < markers.length; i++) {
             markers[i].setMap(null);
         }
-    };
+    }
     self.showMarkers = function(map, markers) {
         for (var i = 0; i < markers.length; i++) {
             markers[i].marker.setMap(map);
@@ -167,6 +167,6 @@ function viewModel() {
     self.sub = self.query.subscribe(function() {
         self.clearMarkers(map, markers);
         self.showMarkers(map, self.places());
-    });
+    })
 
-};
+}
