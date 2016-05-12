@@ -15,7 +15,7 @@ html, body {
     height: 100%;
       }
 .header {
-    height: 100px;
+    height: 70px;
     background: -moz-linear-gradient(left, rgba(0,0,0,1), rgba(0,0,0, 0.5));
 
 
@@ -36,6 +36,9 @@ html, body {
     padding: 10px;
 }
 
+h1{
+    padding-top: -5px;
+}
 #sidebar-wrapper {
      height: 100%;
 
@@ -53,6 +56,7 @@ html, body {
 #search {
     margin: 5px 0px;
     width: 170px;
+    color: black;
 
 }
 
@@ -62,6 +66,24 @@ html, body {
 
 }
 
+#iwaddress {
+    color: #100;
+}
+
+#iwbody{
+    color:#100;
+}
+#phoneno{
+    color: blue;
+}
+
 li{
     color: black;
+}
+
+a{
+    color: red;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
 }

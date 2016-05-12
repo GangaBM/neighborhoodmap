@@ -11,13 +11,13 @@
 		<div class="container">
 
 			<div class="row header">
-				<div class="col-md-2 col-xs-12">
+				<div class="col-md-3 col-xs-12">
 					<button type="button" class="btn btn-primary btn-md" data-toggle="collapse" data-target="#sidebar" aria-expanded="true">
 						<span class="glyphicon glyphicon-menu-hamburger"></span>
 					</button>
 				</div>
-				<div class="col-md-10 col-xs-12">
-					<h1 class="text-center">NEIGHBORHOOD MAP PROJECT</h1>
+				<div class="col-md-9 col-xs-12">
+					<h1>NEIGHBORHOOD MAP PROJECT</h1>
 				</div>
 			</div>
 
@@ -27,7 +27,8 @@
      			<div class="collapse in col-md-3 col-sm-4 col-xs-4" id="sidebar">
 
      					<br/>
-					    <input type="text" class="form-control" placeholder="Search">
+     					<input id="search" placeholder="Search…" type="search" data-bind="textInput: query, valueUpdate: 'keyup'" autocomplete="off">
+
 
 					    <button type="submit" class="btn btn-default">Submit</button>
 					    <br/><br/>
@@ -48,7 +49,7 @@
 		    </div>
 
 		</div>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+		<script src="js/jquery-2.2.3.min%20.js"></script>
 		<script src="bootstrap/js/bootstrap.min.js"></script>
 		<script defer async src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
 		<script src="js/knockout-3.2.0.js"></script>
